@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neon Pong</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+      body {
+        background: radial-gradient(ellipse at center, #0f0f1b 0%, #000000 100%);
+      }
+      .glow-border {
+        border: 2px solid #8e2de2;
+        box-shadow: 0 0 10px #8e2de2, 0 0 20px #4a00e0;
+      }
+      .neon-text {
+        color: #fff;
+        text-shadow: 0 0 5px #8e2de2, 0 0 10px #4a00e0;
+      }
+    </style>
+  </head>
+  <body class="h-screen w-screen overflow-hidden flex items-center justify-center">
+    <div class="w-full h-full flex items-center justify-center relative">
+      <!-- Left Player Profile -->
+      <div class="absolute left-4 top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-4">
+        <img src="/assets/player1.png" alt="Player 1" class="w-24 h-24 rounded-full glow-border" />
+        <p class="text-sm neon-text">Player 1</p>
+      </div>
+
+      <!-- Right Player Profile -->
+      <div class="absolute right-4 top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-4">
+        <img src="/assets/player2.png" alt="Player 2" class="w-24 h-24 rounded-full glow-border" />
+        <p class="text-sm neon-text">Player 2</p>
+      </div>
+
+      <!-- Pong Game Canvas -->
+      <canvas id="pongCanvas" width="1200" height="800" class="glow-border rounded-xl"></canvas>
+
+      <!-- Decorative Neon Lines -->
+      <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-purple-500 to-purple-900 opacity-20"></div>
+      <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-700 to-purple-900 opacity-10"></div>
+    </div>
+
+    <script type="module">
+      const canvas = document.getElementById('pongCanvas') as HTMLCanvasElement;
+      const ctx = canvas.getContext('2d')!;
+
+      function drawBackground() {
+        ctx.fillStyle = '#0f0f1b';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.setLineDash([10, 10]);
+        ctx.strokeStyle = '#8e2de2';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(canvas.width / 2, 0);
+        ctx.lineTo(canvas.width / 2, canvas.height);
+        ctx.stroke();
+      }
+
+      function animate() {
+        drawBackground();
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    </script>
+  </body>
+</html>
+

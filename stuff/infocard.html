@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Profile Card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Neon Gradient Animated Background - Now Inside Card */
+        .neon-bg {
+            background: linear-gradient(-45deg, #200122, #6f00ff, #2c5364, #120136);
+            background-size: 400% 400%;
+            animation: neonBackground 10s ease infinite;
+        }
+        @keyframes neonBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Glowing Card Frame */
+        .neon-border {
+            border: 2px solid transparent;
+            border-image: linear-gradient(90deg, #ff00ff, #00ffff) 1;
+            position: relative;
+        }
+        .neon-border::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, #ff00ff, #00ffff) 1;
+            animation: flicker 1.5s infinite alternate;
+        }
+        @keyframes flicker {
+            0% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+
+        /* Glowing Text */
+        .neon-text {
+            text-shadow: 0 0 6px #ff00ff, 0 0 12px #ff00ff, 0 0 18px #ff00ff;
+        }
+
+        /* Status Indicator */
+        .status-indicator {
+            background: linear-gradient(45deg, #00ff00, #00ffff);
+            box-shadow: 0 0 8px #00ffff;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { transform: scale(1); opacity: 1; }
+            to { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        /* Glitchy Button */
+        .glitch-button {
+            position: relative;
+            overflow: hidden;
+        }
+        .glitch-button::before {
+            content: '➕ Establish Connection';
+            position: absolute;
+            top: 0;
+            left: -2px;
+            right: -2px;
+            color: rgba(255, 255, 255, 0.6);
+            clip-path: polygon(0 0, 100% 0, 100% 30%, 0 50%);
+            animation: glitch 0.5s infinite alternate-reverse;
+        }
+        @keyframes glitch {
+            0% { transform: translateX(-2px); }
+            100% { transform: translateX(2px); }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen text-white bg-black">
+
+    <div class="relative max-w-sm mx-auto p-6 neon-bg border-2 border-purple-500 shadow-neon rounded-2xl text-white transform hover:scale-105 transition-all duration-300 neon-border">
+        <!-- Profile Header -->
+        <div class="relative flex items-center justify-between mb-4">
+            <h2 class="text-2xl font-extrabold tracking-wider neon-text">CyberUser</h2>
+            <span class="px-3 py-1 text-sm font-semibold rounded-full status-indicator glow-animation">🟢 Online</span>
+        </div>
+
+        <!-- Friend Status -->
+        <p class="text-sm text-purple-400 tracking-wide">🤝 Friend Status: <span class="font-semibold text-white">Connected</span></p>
+
+        <!-- Game Stats -->
+        <div class="mt-4 p-2 bg-black bg-opacity-50 rounded-lg shadow-md shadow-purple-500">
+            <p class="text-sm">🏆 <span class="font-semibold text-white">Highest Win Rate:</span> 85%</p>
+            <p class="text-sm">🎮 <span class="font-semibold text-white">Favorite Mode:</span> Deathmatch</p>
+        </div>
+
+        <!-- Holographic Message Form -->
+        <form class="mt-6 bg-black bg-opacity-40 p-3 rounded-lg border border-purple-600 relative">
+            <label class="block text-purple-300 text-sm mb-2">💬 Send a Transmission:</label>
+            <textarea class="w-full p-2 bg-black bg-opacity-50 border border-purple-500 rounded-md text-white placeholder-purple-400 focus:ring-2 focus:ring-purple-500 focus:bg-opacity-70 transition-all duration-200" placeholder="Encrypted message..."></textarea>
+            <button class="w-full mt-3 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-md transform hover:scale-105 transition-all duration-200">🚀 Deploy Message</button>
+        </form>
+
+        <!-- Glitchy Add Friend Button -->
+        <button class="w-full mt-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-md transform hover:scale-105 transition-all duration-200 glitch-button">
+            ➕ Establish Connection
+        </button>
+    </div>
+
+</body>
+</html>
+

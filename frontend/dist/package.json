@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "eventemitter3": "^5.0.1",
+    "events": "^3.3.0",
+    "sanitize-html": "^2.15.0",
+    "typescript": "^5.8.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "esbuild": "^0.25.1",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17"
+  },
+  "scripts": {
+    "dev": "npm run watch:css & tsc --watch",
+    "build:ts": "tsc",
+    "build:css": "tailwindcss -i ./src/styles.css -o ./build/styles.css",
+    "build": "npm run build:ts ; npm run build:css",
+    "watch:ts": "tsc --watch",
+    "watch:css": "tailwindcss -i ./src/styles.css -o ./build/styles.css --watch",
+    "start": "npm run build"
+  }
+}

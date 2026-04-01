@@ -1,0 +1,1022 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.img-as-background {
+	object-fit: cover;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+@keyframes neon-glow {
+	0% {
+		box-shadow: 0 0 5px #e3d022, 0 0 10px #e3d022, 0 0 15px #e3d022;
+	}
+
+	50% {
+		box-shadow: 0 0 10px #e3d022, 0 0 20px #e3d022, 0 0 30px #e3d022;
+	}
+
+	100% {
+		box-shadow: 0 0 5px #e3d022, 0 0 10px #e3d022, 0 0 15px #e3d022;
+	}
+}
+
+.neon-form:hover {
+	animation: neon-glow 1.5s infinite alternate;
+	transform: scale(1.02);
+}
+
+.logout-button-neon-glow {
+	box-shadow: 0 0 10px #9b5de5, 0 0 40px #9b5de5, 0 0 80px #9b5de5;
+}
+
+.neutral {
+	all: unset;
+	display: content;
+}
+
+.home-main-div {
+	background: radial-gradient(circle at center, #20002c, #000000);
+	color: #fff;
+}
+
+.neon-border-main-div {
+	border: 2px solid #ff00ff;
+	box-shadow: 0 0 10px #ff00ff;
+}
+
+.home-main-div-hover-glow {
+	transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+}
+
+.home-main-div-hover-glow:hover {
+	/* transform: scale(1.05); */
+	box-shadow: 0 0 15px #ffff00;
+}
+
+.floatdiv1-bg {
+	background: url('https://images2.alphacoders.com/109/1092728.jpg') no-repeat center center/cover;
+}
+
+.floatdiv2-bg {
+	background: url('https://wallpaper.forfun.com/fetch/44/44fdf7eb1f16aefd748724fd665c32a6.jpeg') no-repeat center center/cover;
+}
+
+.rainbow-text-hover:hover {
+	font-weight: bold;
+	background-image: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+	background-size: 300% 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+	animation: rainbow-animation 6s linear infinite;
+}
+
+@keyframes rainbow-animation {
+	0% {
+		background-position: 0% 50%;
+	}
+
+	100% {
+		background-position: 200% 50%;
+	}
+}
+
+.always-in-front {
+	z-index: 9999;
+}
+
+.convNotifNewMessage {
+	animation: convNotifNewMessageAnimationWobble 0.2s linear 4;
+}
+
+@keyframes convNotifNewMessageAnimationWobble {
+	0% {
+		transform: rotate(0deg)
+	}
+
+	;
+
+	10% {
+		transform: rotate(5deg)
+	}
+
+	;
+
+	50% {
+		transform: rotate(-5deg)
+	}
+
+	;
+
+	100% {
+		transform: rotate(0deg)
+	}
+
+	;
+}
+
+/* Neon Gradient Animated Background - Now Inside Card */
+.neon-bg {
+	background: linear-gradient(-45deg, #200122, #6f00ff, #2c5364, #120136);
+	background-size: 400% 400%;
+	animation: neonBackground 10s ease infinite;
+}
+
+@keyframes neonBackground {
+	0% {
+		background-position: 0% 50%;
+	}
+
+	50% {
+		background-position: 100% 50%;
+	}
+
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* Glowing Card Frame */
+.neon-border {
+	border: 2px solid transparent;
+	border-image: linear-gradient(90deg, #ff00ff, #00ffff) 1;
+	position: relative;
+}
+
+.neon-border::before {
+	content: '';
+	position: absolute;
+	inset: -3px;
+	border: 2px solid transparent;
+	border-image: linear-gradient(45deg, #ff00ff, #00ffff) 1;
+	animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0.7;
+	}
+}
+
+/* Glowing Text */
+.neon-text {
+	text-shadow: 0 0 6px #ff00ff, 0 0 12px #ff00ff, 0 0 18px #ff00ff;
+}
+
+/* Effet néon de base */
+.neon-text1 {
+	color: #fff;
+	text-shadow:
+		0 0 5px #fff,
+		0 0 10px #fff,
+		0 0 20px #fff,
+		0 0 40px #9333ea,
+		0 0 80px #9333ea,
+		0 0 90px #9333ea,
+		0 0 100px #9333ea,
+		0 0 150px #9333ea;
+}
+
+/* Animation clignotante */
+@keyframes neon-flicker {
+
+	0%,
+	19%,
+	21%,
+	23%,
+	25%,
+	54%,
+	56%,
+	100% {
+		text-shadow:
+			0 0 5px #fff,
+			0 0 10px #fff,
+			0 0 20px #fff,
+			0 0 40px #9333ea,
+			0 0 80px #9333ea,
+			0 0 90px #9333ea,
+			0 0 100px #9333ea,
+			0 0 150px #9333ea;
+	}
+
+	20%,
+	24%,
+	55% {
+		text-shadow: none;
+	}
+}
+
+.animate-neon {
+	animation: neon-flicker 1.5s infinite alternate;
+}
+
+/* Status Indicator */
+.status-indicator-online {
+	background: linear-gradient(45deg, #00ff00, #00ffff);
+	box-shadow: 0 0 8px #00ffff;
+	animation: pulse 1.5s infinite alternate;
+}
+
+.status-indicator-offline {
+	background: linear-gradient(45deg, #e310b2, #e31010);
+	box-shadow: 0 0 8px #00ffff;
+	animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+	from {
+		transform: scale(1);
+		opacity: 1;
+	}
+
+	to {
+		transform: scale(1.1);
+		opacity: 0.8;
+	}
+}
+
+/* Glitchy Button */
+.glitch-button {
+	position: relative;
+	overflow: hidden;
+}
+
+.glitch-button::before {
+	content: '➕ Establish Connection';
+	position: absolute;
+	top: 0;
+	left: -2px;
+	right: -2px;
+	color: rgba(255, 255, 255, 0.6);
+	clip-path: polygon(0 0, 100% 0, 100% 30%, 0 50%);
+	animation: glitch 0.5s infinite alternate-reverse;
+}
+
+@keyframes glitch {
+	0% {
+		transform: translateX(-2px);
+	}
+
+	100% {
+		transform: translateX(2px);
+	}
+}
+
+.tournament-card {
+	width: 100%;
+	background: linear-gradient(145deg, rgba(109, 57, 190, 0.95), rgba(79, 28, 144, 0.92));
+	border-radius: 32px;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	box-shadow: 0 25px 60px rgba(64, 10, 110, 0.55);
+	padding: 2.5rem 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	color: #f6f1ff;
+	position: relative;
+	overflow: hidden;
+}
+
+.tournament-card::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	pointer-events: none;
+}
+
+.tournament-card__header,
+.tournament-card__footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+.tournament-card__headline {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+}
+
+.tournament-card__title {
+	font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.tournament-card__subtitle {
+	font-size: 1rem;
+	color: rgba(244, 237, 255, 0.85);
+}
+
+.tournament-card__actions {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+}
+
+.tournament-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	justify-content: center;
+	margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+	.tournament-actions {
+		justify-content: flex-end;
+	}
+}
+
+.tournament-action-btn {
+	min-width: 150px;
+	padding: 0.65rem 1.4rem;
+	border-radius: 999px;
+	font-weight: 600;
+	font-size: 0.95rem;
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	background: rgba(35, 15, 70, 0.6);
+	color: #fff;
+	transition: transform 0.15s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+	backdrop-filter: blur(4px);
+}
+
+.tournament-action-btn:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 12px 28px rgba(80, 22, 150, 0.45);
+}
+
+.tournament-action-btn:disabled {
+	opacity: 0.55;
+	cursor: not-allowed;
+	transform: none;
+	box-shadow: none;
+}
+
+.tournament-action-btn--join {
+	background: linear-gradient(135deg, #3b82f6, #7c3aed);
+}
+
+.tournament-action-btn--leave {
+	background: linear-gradient(135deg, #ef4444, #b91c1c);
+}
+
+.tournament-action-btn--start {
+	background: linear-gradient(135deg, #22c55e, #15803d);
+}
+
+.tournament-action-btn--delete {
+	background: linear-gradient(135deg, #fb7185, #be123c);
+}
+
+.tournament-action-btn--loading {
+	opacity: 0.75;
+}
+
+.tournament-card__body {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+	.tournament-card__body {
+		flex-direction: row;
+		align-items: stretch;
+	}
+}
+
+.tournament-pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.6rem 1.2rem;
+	border-radius: 9999px;
+	background: rgba(38, 11, 74, 0.55);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	font-weight: 600;
+	font-size: 0.95rem;
+	transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+	backdrop-filter: blur(6px);
+}
+
+.tournament-pill__icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.1rem;
+}
+
+.tournament-pill--button {
+	cursor: pointer;
+	background: linear-gradient(135deg, rgba(155, 88, 255, 0.6), rgba(92, 37, 197, 0.9));
+	box-shadow: 0 12px 25px rgba(60, 20, 130, 0.32);
+}
+
+.tournament-pill--button:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 16px 30px rgba(86, 35, 180, 0.45);
+}
+
+.tournament-pill--button:disabled {
+	opacity: 0.6;
+	cursor: default;
+	transform: none;
+	box-shadow: none;
+}
+
+.tournament-pill--loading {
+	background: rgba(32, 12, 68, 0.7);
+	box-shadow: none;
+}
+
+.tournament-spinner {
+	width: 1rem;
+	height: 1rem;
+	border-radius: 50%;
+	border: 2px solid rgba(255, 255, 255, 0.35);
+	border-right-color: transparent;
+	animation: tournament-spin 0.8s linear infinite;
+}
+
+@keyframes tournament-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.tournament-panel {
+	flex: 1;
+	min-width: 240px;
+	background: rgba(24, 4, 54, 0.55);
+	border-radius: 24px;
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.tournament-panel__title {
+	font-size: 1.4rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: #f6e8ff;
+}
+
+.tournament-panel__list {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	padding: 0;
+	margin: 0;
+}
+
+.tournament-panel__item {
+	display: flex;
+	align-items: center;
+	gap: 0.65rem;
+	font-size: 1.05rem;
+	padding: 0.65rem 0.75rem;
+	border-radius: 14px;
+	background: rgba(94, 52, 190, 0.25);
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.09);
+}
+
+.tournament-panel__item--placeholder {
+	opacity: 0.7;
+	font-style: italic;
+	background: rgba(94, 52, 190, 0.15);
+}
+
+.tournament-panel__item--inactive {
+	opacity: 0.6;
+	font-style: italic;
+}
+
+.tournament-panel__bullet {
+	font-size: 0.9rem;
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.tournament-panel__name {
+	letter-spacing: 0.03em;
+}
+
+.tournament-bracket {
+	flex: 2;
+	min-width: 280px;
+	background: rgba(24, 4, 54, 0.55);
+	border-radius: 24px;
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.tournament-bracket__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+.tournament-status {
+	padding: 0.45rem 0.8rem;
+	border-radius: 999px;
+	background: rgba(98, 46, 196, 0.32);
+	font-size: 0.95rem;
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.tournament-bracket__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 1.5rem;
+	align-items: stretch;
+}
+
+@media (min-width: 768px) {
+	.tournament-bracket__grid {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+		gap: 2.5rem;
+	}
+}
+
+.tournament-bracket__column {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+	align-items: stretch;
+}
+
+.tournament-bracket__column--semi {
+	align-self: stretch;
+}
+
+.tournament-bracket__column--final {
+	justify-content: center;
+	align-items: stretch;
+}
+
+.tournament-match {
+	background: linear-gradient(140deg, rgba(129, 80, 225, 0.45), rgba(87, 40, 180, 0.55));
+	border-radius: 20px;
+	padding: 1.25rem 1.1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.9rem;
+	box-shadow: 0 18px 25px rgba(51, 17, 109, 0.35);
+	position: relative;
+}
+
+.tournament-match::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	pointer-events: none;
+}
+
+.tournament-match--finished {
+	box-shadow: 0 25px 35px rgba(41, 89, 41, 0.35);
+}
+
+.tournament-match--empty {
+	background: rgba(70, 30, 145, 0.3);
+	box-shadow: none;
+}
+
+.tournament-match__title {
+	font-size: 1.1rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.tournament-match__players {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+}
+
+.tournament-match__player {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.55rem 0.8rem;
+	border-radius: 14px;
+	background: rgba(22, 5, 54, 0.45);
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+	font-size: 1.05rem;
+}
+
+.tournament-match__player--winner {
+	background: rgba(27, 102, 52, 0.55);
+	box-shadow: inset 0 0 0 1px rgba(144, 255, 189, 0.45);
+}
+
+.tournament-match__player-name {
+	font-weight: 600;
+}
+
+.tournament-match__player-score {
+	font-weight: 700;
+	font-size: 1.1rem;
+}
+
+.tournament-match__status {
+	font-size: 0.95rem;
+	opacity: 0.85;
+}
+
+.tournament-match__placeholder {
+	font-style: italic;
+	opacity: 0.7;
+}
+
+.tournament-alert {
+	padding: 0.9rem 1.2rem;
+	border-radius: 16px;
+	font-weight: 600;
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	background: rgba(40, 18, 70, 0.55);
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.tournament-alert--error {
+	background: rgba(190, 40, 40, 0.32);
+	border-color: rgba(255, 120, 120, 0.45);
+}
+
+.tournament-alert--success {
+	background: rgba(34, 197, 94, 0.28);
+	border-color: rgba(134, 239, 172, 0.45);
+}
+
+.tournament-alert--info {
+	background: rgba(59, 130, 246, 0.28);
+	border-color: rgba(147, 197, 253, 0.4);
+}
+
+.tournament-alert.hidden {
+	display: none;
+}
+
+.tournament-winner {
+	font-size: 1.05rem;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.65rem 1rem;
+	border-radius: 999px;
+	background: rgba(31, 85, 31, 0.45);
+	box-shadow: inset 0 0 0 1px rgba(162, 255, 162, 0.38);
+}
+
+.tournament-winner__name {
+	font-weight: 700;
+}
+
+.tournament-winner--pending {
+	background: rgba(90, 53, 160, 0.55);
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+}
+
+.tournament-loader {
+	text-align: center;
+	padding: 1.5rem;
+	border-radius: 18px;
+	background: rgba(70, 30, 145, 0.35);
+}
+
+/* CYBER FRIEND LIST BOX */
+.friends-list {
+	background: rgba(20, 20, 30, 0.95);
+	border: 3px solid transparent;
+	border-image: linear-gradient(90deg, #ff00ff, #00ffff);
+	border-image-slice: 1;
+	box-shadow: 0 0 20px rgba(255, 0, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.8);
+	backdrop-filter: blur(10px);
+	overflow-y: auto;
+	position: relative;
+}
+
+/* FRIEND CARD */
+.friend {
+	background: rgba(0, 0, 0, 0.85);
+	border-radius: 10px;
+	padding: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	transition: all 0.3s ease-in-out;
+	border: 2px solid transparent;
+	border-image: linear-gradient(45deg, #ff00ff, #00ffff);
+	border-image-slice: 1;
+}
+
+.friend:hover {
+	background: rgba(255, 0, 255, 0.3);
+	box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+}
+
+.invite-popup-button {
+	background: rgba(0, 0, 0, 0.85);
+	border-radius: 10px;
+	padding: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	transition: all 0.3s ease-in-out;
+	border-image: linear-gradient(45deg, #ff00ff, #00ffff);
+	border-image-slice: 1;
+}
+
+.invite-popup-button:hover {
+	background: rgba(255, 0, 255, 0.3);
+	box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+}
+
+/* ONLINE STATUS INDICATORS */
+.status-dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	box-shadow: 0 0 10px;
+}
+
+.online {
+	background: #00ff00;
+}
+
+.offline {
+	background: #ff0000;
+}
+
+.away {
+	background: #ffff00;
+}
+
+/* INSANE BUTTONS */
+.cyber-button {
+	background: linear-gradient(90deg, #ff00ff, #00ffff);
+	box-shadow: 0 0 20px rgba(255, 0, 255, 0.6), 0 0 25px rgba(0, 255, 255, 0.6);
+	transition: transform 0.1s ease-in-out, box-shadow 0.3s;
+}
+
+.cyber-button:hover {
+	transform: scale(1.1) rotate(2deg);
+	box-shadow: 0 0 30px rgba(255, 0, 255, 0.8), 0 0 35px rgba(0, 255, 255, 0.8);
+}
+
+
+.grid-overlay {
+	background: repeating-linear-gradient(90deg, rgba(255, 0, 255, 0.1) 0px, rgba(255, 0, 255, 0.1) 1px, transparent 1px, transparent 20px),
+		repeating-linear-gradient(0deg, rgba(0, 255, 255, 0.1) 0px, rgba(0, 255, 255, 0.1) 1px, transparent 1px, transparent 20px);
+	animation: glitchGrid 1.5s infinite linear alternate;
+	z-index: -1;
+}
+
+@keyframes glitchGrid {
+	0% {
+		transform: translateX(0px) translateY(0px);
+	}
+
+	100% {
+		transform: translateX(-2px) translateY(2px);
+	}
+}
+
+/* Cyberpunk Sidebar */
+.chat-sidebar {
+	background: rgba(20, 20, 30, 0.8);
+	border-right: 2px solid rgba(255, 0, 255, 0.7);
+	box-shadow: 4px 0 15px rgba(255, 0, 255, 0.3);
+}
+
+/* Chat Messages */
+.chat-box {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	max-height: 500px;
+	overflow-y: auto;
+	padding: 16px;
+}
+
+.message {
+	max-width: 70%;
+	padding: 12px 18px;
+	border-radius: 12px;
+	font-size: 16px;
+	font-weight: bold;
+	position: relative;
+	transition: transform 0.2s ease-in-out;
+}
+
+/* Glitching Chat Bubbles */
+.message.received {
+	align-self: flex-start;
+	background: linear-gradient(90deg, #00ffff, #0077ff);
+	color: white;
+	box-shadow: -2px 2px 8px rgba(0, 255, 255, 0.5);
+	animation: glitchText 1s infinite alternate;
+}
+
+.message.sent {
+	align-self: flex-end;
+	background: linear-gradient(90deg, #ff00ff, #8f00ff);
+	color: white;
+	box-shadow: 2px -2px 8px rgba(255, 0, 255, 0.5);
+	animation: glitchText 1s infinite alternate-reverse;
+}
+
+/* Glitch Animation */
+@keyframes glitchText {
+	0% {
+		text-shadow: 2px 2px 8px rgba(255, 0, 255, 0.5);
+	}
+
+	100% {
+		text-shadow: -2px -2px 8px rgba(0, 255, 255, 0.5);
+	}
+}
+
+/* Cyberpunk Buttons */
+.send-button {
+	background: linear-gradient(90deg, #ff00ff, #00ffff);
+	box-shadow: 0 0 10px rgba(255, 0, 255, 0.6), 0 0 15px rgba(0, 255, 255, 0.6);
+	transition: transform 0.1s ease-in-out;
+}
+
+.send-button:hover {
+	transform: scale(1.1);
+}
+
+/* Cyber Chat Header */
+.chat-header {
+	font-size: 1.8rem;
+	font-weight: bold;
+	color: #ff00ff;
+	text-shadow: 0 0 8px rgba(255, 0, 255, 0.6), 0 0 15px rgba(0, 255, 255, 0.6);
+	animation: glitchHeader 1.2s infinite alternate;
+}
+
+.friendlist-header {
+	font-size: 1.8rem;
+	font-weight: bold;
+	color: #DDF12B;
+	text-shadow: 0 0 8px rgba(255, 0, 255, 0.6), 0 0 15px rgba(0, 255, 255, 0.6);
+	animation: glitchHeader 1.2s infinite alternate;
+}
+
+/* Glitching Header */
+@keyframes glitchHeader {
+	0% {
+		transform: translateX(-2px);
+	}
+
+	100% {
+		transform: translateX(2px);
+	}
+}
+
+
+
+.font-orbitron {
+	font-family: 'Orbitron', sans-serif;
+}
+
+/* Custom neon glow text shadow */
+.text-glow-fuchsia {
+	text-shadow: 0 0 5px theme('colors.fuchsia.400'),
+		0 0 10px theme('colors.fuchsia.500'),
+		0 0 15px theme('colors.fuchsia.600');
+}
+
+.text-glow-cyan {
+	text-shadow: 0 0 5px theme('colors.cyan.300'),
+		0 0 10px theme('colors.cyan.400'),
+		0 0 15px theme('colors.cyan.500');
+}
+
+/* Custom neon glow box shadow for cards */
+.card-glow {
+	box-shadow: 0 0 15px 2px rgba(232, 121, 249, 0.2),
+		/* Subtle base glow */
+		inset 0 0 5px 1px rgba(255, 255, 255, 0.1);
+	/* Inner highlight */
+	transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.card-glow:hover {
+	box-shadow: 0 0 25px 5px rgba(232, 121, 249, 0.4),
+		/* Enhanced hover glow */
+		inset 0 0 10px 2px rgba(255, 255, 255, 0.15);
+	/* Brighter inner highlight */
+	transform: scale(1.03) translateY(-5px);
+	/* More dynamic hover transform */
+}
+
+/* Custom neon glow shadow for primary buttons */
+.button-glow {
+	box-shadow: 0 0 8px rgba(219, 39, 119, 0.4),
+		/* Fuchsia part */
+		0 0 8px rgba(147, 51, 234, 0.4);
+	/* Purple part */
+	transition: box-shadow 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.button-glow:hover {
+	box-shadow: 0 0 15px rgba(219, 39, 119, 0.6),
+		0 0 15px rgba(147, 51, 234, 0.6);
+	filter: brightness(1.2);
+	/* Make it pop more */
+}
+
+/* Styling the file input label */
+.upload-label {
+	transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.upload-label:hover {
+	background-color: rgba(236, 72, 153, 0.15);
+	border-color: theme('colors.fuchsia.500');
+	color: theme('colors.fuchsia.200');
+}
+
+/* Input field styling */
+.input-synth {
+	background-color: rgba(0, 0, 0, 0.25);
+	border: 1px solid theme('colors.purple.500/40');
+	color: theme('colors.gray.200');
+	transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-synth:focus {
+	outline: none;
+	border-color: theme('colors.cyan.400');
+	box-shadow: 0 0 10px 2px rgba(34, 211, 238, 0.3);
+	/* Cyan focus glow */
+}
+
+/* Ensure autofill background is also dark */
+.input-synth:-webkit-autofill,
+.input-synth:-webkit-autofill:hover,
+.input-synth:-webkit-autofill:focus,
+.input-synth:-webkit-autofill:active {
+	-webkit-box-shadow: 0 0 0 30px theme('colors.gray.900') inset !important;
+	/* Or a dark color matching your theme */
+	-webkit-text-fill-color: theme('colors.gray.200') !important;
+	caret-color: theme('colors.gray.200');
+	/* Ensure cursor color is visible */
+	transition: background-color 5000s ease-in-out 0s;
+	/* Hack to override autofill styles */
+	border: 1px solid theme('colors.purple.500/40');
+	/* Re-apply border */
+}
+
+.input-synth:focus:-webkit-autofill {
+	border-color: theme('colors.cyan.400');
+	box-shadow: 0 0 10px 2px rgba(34, 211, 238, 0.3), 0 0 0 30px theme('colors.gray.900') inset !important;
+	/* Combine focus glow and autofill background */
+}
+
+.game-body {
+	background: radial-gradient(ellipse at center, #0f0f1b 0%, #000000 100%);
+}
+
+.game-glow-border {
+	border: 2px solid #8e2de2;
+	box-shadow: 0 0 10px #8e2de2, 0 0 20px #4a00e0;
+}
+
+.game-neon-text {
+	color: #fff;
+	text-shadow: 0 0 5px #8e2de2, 0 0 10px #4a00e0;
+}

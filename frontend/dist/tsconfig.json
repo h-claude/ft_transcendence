@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "esnext",                    // Compile to ES5 for browser compatibility
+    "module": "esnext",                 // ES6 modules
+	"lib": ["ESNext", "DOM"],
+    "strict": true,                     // Enable strict type-checking options
+    "moduleResolution": "node",         // Resolve modules like in Node.js
+    "esModuleInterop": true,            // Allows default imports for non-ESM modules
+    "skipLibCheck": true,               // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true, // Ensure consistent file naming
+	"outDir": "./build",
+	"rootDir": "./src"
+  },
+  "include": [
+	"src/*.ts",
+    "src/**/*.ts",                      // Include TypeScript files from src folder
+    "src/**/*.tsx"                      // If you use .tsx files in the future
+  ],
+  "exclude": ["node_modules"]           // Exclude node_modules
+}

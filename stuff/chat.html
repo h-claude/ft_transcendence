@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Glitch Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Animated Neon Grid Background */
+        body {
+            background: black;
+            overflow: hidden;
+        }
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: repeating-linear-gradient(90deg, rgba(255, 0, 255, 0.1) 0px, rgba(255, 0, 255, 0.1) 1px, transparent 1px, transparent 20px),
+                        repeating-linear-gradient(0deg, rgba(0, 255, 255, 0.1) 0px, rgba(0, 255, 255, 0.1) 1px, transparent 1px, transparent 20px);
+            animation: glitchGrid 1.5s infinite linear alternate;
+            z-index: -1;
+        }
+        @keyframes glitchGrid {
+            0% { transform: translateX(0px) translateY(0px); }
+            100% { transform: translateX(-2px) translateY(2px); }
+        }
+
+        /* Cyberpunk Sidebar */
+        .chat-sidebar {
+            background: rgba(20, 20, 30, 0.8);
+            border-right: 2px solid rgba(255, 0, 255, 0.7);
+            box-shadow: 4px 0 15px rgba(255, 0, 255, 0.3);
+        }
+
+        /* Chat Messages */
+        .chat-box {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 500px;
+            overflow-y: auto;
+            padding: 16px;
+        }
+        .message {
+            max-width: 70%;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            position: relative;
+            transition: transform 0.2s ease-in-out;
+        }
+        /* Glitching Chat Bubbles */
+        .message.received {
+            align-self: flex-start;
+            background: linear-gradient(90deg, #00ffff, #0077ff);
+            color: white;
+            box-shadow: -2px 2px 8px rgba(0, 255, 255, 0.5);
+            animation: glitchText 1s infinite alternate;
+        }
+        .message.sent {
+            align-self: flex-end;
+            background: linear-gradient(90deg, #ff00ff, #8f00ff);
+            color: white;
+            box-shadow: 2px -2px 8px rgba(255, 0, 255, 0.5);
+            animation: glitchText 1s infinite alternate-reverse;
+        }
+
+        /* Glitch Animation */
+        @keyframes glitchText {
+            0% { text-shadow: 2px 2px 8px rgba(255, 0, 255, 0.5); }
+            100% { text-shadow: -2px -2px 8px rgba(0, 255, 255, 0.5); }
+        }
+
+        /* Cyberpunk Buttons */
+        .send-button {
+            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.6), 0 0 15px rgba(0, 255, 255, 0.6);
+            transition: transform 0.1s ease-in-out;
+        }
+        .send-button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Cyber Chat Header */
+        .chat-header {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff00ff;
+            text-shadow: 0 0 8px rgba(255, 0, 255, 0.6), 0 0 15px rgba(0, 255, 255, 0.6);
+            animation: glitchHeader 1.2s infinite alternate;
+        }
+
+        /* Glitching Header */
+        @keyframes glitchHeader {
+            0% { transform: translateX(-2px); }
+            100% { transform: translateX(2px); }
+        }
+
+    </style>
+</head>
+<body class="flex h-screen text-white">
+
+    <div class="grid-overlay"></div>
+
+    <!-- Conversations Sidebar -->
+    <div class="w-1/4 h-full p-4 chat-sidebar">
+        <h2 class="chat-header text-center mb-4">⚡ CYBER CONNECTIONS ⚡</h2>
+        <ul class="space-y-4">
+            <li class="p-3 bg-purple-900 bg-opacity-50 rounded-lg cursor-pointer hover:bg-opacity-80 transition-all">🔮 NeonWarrior</li>
+            <li class="p-3 bg-purple-900 bg-opacity-50 rounded-lg cursor-pointer hover:bg-opacity-80 transition-all">💀 SynthGhost</li>
+            <li class="p-3 bg-purple-900 bg-opacity-50 rounded-lg cursor-pointer hover:bg-opacity-80 transition-all">🔷 GlitchX</li>
+        </ul>
+    </div>
+
+    <!-- Chat Window -->
+    <div class="w-3/4 h-full flex flex-col p-6 neon-border">
+        <h2 class="chat-header text-center mb-4">💀 SYNTHWAVE TRANSMISSION 💀</h2>
+
+        <!-- Messages Container -->
+        <div class="flex-1 chat-box">
+            <div class="message received">💿 Yo, you jacked into the net yet?</div>
+            <div class="message sent">🚀 Just entered the digital realm. This UI is BLAZING.</div>
+            <div class="message received">⚡ Feels like the inside of a modular synth, doesn’t it?</div>
+            <div class="message sent">💀 Bro, I can hear the 808s melting my brain.</div>
+        </div>
+
+        <!-- Message Input -->
+        <div class="mt-4 flex items-center space-x-4 p-4 chat-input rounded-lg">
+            <input type="text" class="flex-1 bg-transparent p-2 border-b border-purple-500 focus:outline-none focus:border-purple-300 placeholder-purple-400" placeholder="Hack into the mainframe...">
+            <button class="py-2 px-4 rounded-lg send-button text-black font-bold">🚀 SEND</button>
+        </div>
+    </div>
+
+</body>
+</html>
+

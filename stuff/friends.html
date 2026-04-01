@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Friends List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* BACKGROUND - THE HOLY NEON GLOW */
+        body {
+            background: black;
+            overflow: hidden;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* INSANE ANIMATED BACKGROUND */
+        .neon-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ff0000);
+            background-size: 400% 400%;
+            animation: neonMove 10s infinite alternate ease-in-out;
+            z-index: -1;
+            filter: blur(80px);
+        }
+
+        @keyframes neonMove {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        /* CYBER FRIEND LIST BOX */
+        .friends-list {
+            background: rgba(20, 20, 30, 0.95);
+            border: 3px solid transparent;
+            border-image: linear-gradient(90deg, #ff00ff, #00ffff);
+            border-image-slice: 1;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            overflow-y: auto;
+            position: relative;
+        }
+
+        /* INSANE GLITCH EFFECT */
+        .glitch {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(0deg, rgba(255, 0, 255, 0.1), rgba(255, 0, 255, 0.2) 2px, transparent 4px, transparent 8px);
+            animation: glitchEffect 1s infinite linear alternate-reverse;
+            mix-blend-mode: overlay;
+        }
+
+        @keyframes glitchEffect {
+            0% { transform: translateX(0px); }
+            100% { transform: translateX(5px); }
+        }
+
+        /* FRIEND CARD */
+        .friend {
+            background: rgba(40, 40, 60, 0.85);
+            border-radius: 10px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease-in-out;
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, #ff00ff, #00ffff);
+            border-image-slice: 1;
+        }
+
+        .friend:hover {
+            background: rgba(255, 0, 255, 0.3);
+            transform: scale(1.05) rotate(-1deg);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+        }
+
+        /* ONLINE STATUS INDICATORS */
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px;
+        }
+        .online { background: #00ff00; }
+        .offline { background: #ff0000; }
+        .away { background: #ffff00; }
+
+        /* ADD FRIEND MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(20, 20, 30, 0.98);
+            padding: 20px;
+            border: 2px solid rgba(255, 0, 255, 0.9);
+            box-shadow: 0 0 30px rgba(255, 0, 255, 1);
+            z-index: 10;
+            border-radius: 15px;
+        }
+
+        /* INSANE BUTTONS */
+        .cyber-button {
+            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.6), 0 0 25px rgba(0, 255, 255, 0.6);
+            transition: transform 0.1s ease-in-out, box-shadow 0.3s;
+        }
+        .cyber-button:hover {
+            transform: scale(1.1) rotate(2deg);
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.8), 0 0 35px rgba(0, 255, 255, 0.8);
+        }
+
+    </style>
+</head>
+<body class="flex flex-col items-center text-white p-6">
+
+    <!-- BACKGROUND WAVES -->
+    <div class="neon-bg"></div>
+
+    <!-- FRIENDS LIST -->
+    <div class="friends-list w-1/3 p-6 rounded-lg relative">
+        <div class="glitch"></div>
+        <h2 class="text-xl font-bold text-center text-purple-400 mb-4">⚡ CYBER FRIENDS ⚡</h2>
+
+        <div class="space-y-4">
+            <div class="friend">
+                <span>🔮 <strong>NeonWarrior</strong></span>
+                <div class="status-dot online"></div>
+            </div>
+            <div class="friend">
+                <span>💀 <strong>SynthGhost</strong></span>
+                <div class="status-dot offline"></div>
+            </div>
+            <div class="friend">
+                <span>🔷 <strong>GlitchX</strong></span>
+                <div class="status-dot away"></div>
+            </div>
+        </div>
+
+        <!-- ADD FRIEND BUTTON -->
+        <div class="mt-6 text-center">
+            <button class="cyber-button p-3 rounded-lg" onclick="showModal()">➕ ADD FRIEND</button>
+        </div>
+    </div>
+
+    <!-- ADD FRIEND MODAL -->
+    <div id="addFriendModal" class="modal">
+        <h2 class="text-lg font-bold text-purple-400 mb-4">👾 ADD A FRIEND 👾</h2>
+        <input type="text" placeholder="Enter username..." class="w-full p-2 text-black rounded">
+        <div class="flex justify-between mt-4">
+            <button class="cyber-button p-2 rounded-lg" onclick="addFriend()">💜 Send Request</button>
+            <button class="cyber-button p-2 rounded-lg bg-red-500" onclick="closeModal()">❌ Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        function showModal() {
+            document.getElementById('addFriendModal').style.display = 'block';
+        }
+        function closeModal() {
+            document.getElementById('addFriendModal').style.display = 'none';
+        }
+        function addFriend() {
+            alert("Friend request sent!");
+            closeModal();
+        }
+    </script>
+
+</body>
+</html>
+

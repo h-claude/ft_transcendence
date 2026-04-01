@@ -1,0 +1,41 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./backend:/home/nodejs/app
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./frontend
+    volumes:
+      - ./frontend/dist:/frontend_dist
+    networks:
+      - app-network
+
+  nginx:
+    build:
+      context: ./nginx
+    ports:
+      - "8443:443"
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - app-network
+    volumes:
+      - ./frontend/dist:/usr/share/nginx/html
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  frontend_dist:
+  backend_dist:

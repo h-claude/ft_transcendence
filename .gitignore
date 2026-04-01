@@ -1,0 +1,6 @@
+*.log
+*.out
+*.env
+*.env*
+**/build/
+**/node_modules/

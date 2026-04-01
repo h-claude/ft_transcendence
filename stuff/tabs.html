@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Profile Card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<div class="w-full max-w-md mx-auto bg-gray-900 p-4 rounded-lg shadow-xl">
+    <div class="flex border-b border-gray-700">
+        <button onclick="setTab('tab1')" id="tab1-btn"
+            class="tab-button p-2 w-full text-white border-b-4 border-transparent hover:bg-gray-800 transition-all">
+            Tab 1
+        </button>
+        <button onclick="setTab('tab2')" id="tab2-btn"
+            class="tab-button p-2 w-full text-white border-b-4 border-transparent hover:bg-gray-800 transition-all">
+            Tab 2
+        </button>
+		<button onclick="setTab('tab3')" id="tab3-btn"
+            class="tab-button p-2 w-full text-white border-b-4 border-transparent hover:bg-gray-800 transition-all">
+			Tab 3
+		</button>
+    </div>
+
+    <div class="mt-4 text-white">
+        <div id="tab1" class="tab-content p-4 bg-gray-800 rounded-lg shadow-md">🔥 Content for Tab 1</div>
+        <div id="tab2" class="tab-content p-4 bg-gray-800 rounded-lg shadow-md hidden">🚀 Content for Tab 2</div>
+        <div id="tab3" class="tab-content p-4 bg-gray-800 rounded-lg shadow-md hidden">🚀 Content for Tab 3</div>
+    </div>
+</div>
+
+<script>
+    function setTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll('.tab-button').forEach(el => el.classList.remove('border-purple-500', 'bg-gray-800'));
+
+        document.getElementById(tabId).classList.remove('hidden');
+        document.getElementById(`${tabId}-btn`).classList.add('border-purple-500', 'bg-gray-800');
+    }
+
+    // Set default active tab
+    setTab('tab1');
+</script>
+
+</body>
